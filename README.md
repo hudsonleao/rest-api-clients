@@ -19,5 +19,6 @@
 - Implementar o audit
 - Criar o compose para subir o banco e aplicação no docker
 - Testes unitários
+- Testes features
 
 **NODE: v14.16.0**
