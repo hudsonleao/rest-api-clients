@@ -16,6 +16,8 @@
 - Validações com Joi
 - Documentação com Swagger
 - Logs com Winston
+- Implementar o audit
+- Criar o compose para subir o banco e aplicação no docker
 - Testes unitários
 - Testes de features
 
