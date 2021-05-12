@@ -1,6 +1,6 @@
 # teste-compasso-rest-api
 
-# TODOS:
+# TODO:
 - Implementar o cross-env
 - Implementar lint
 - Implementar ORM mongoose
