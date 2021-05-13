@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 module.exports = () => {
 
     const { env: { DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD } } = process;
-    
+
     console.log('Connecting to the database...\n')
-    
-    mongoose.connect(`mongodb://${DATABASE_URL}${DATABASE_USER && DATABASE_PASSWORD ? '@' + DATABASE_USER + ':' + DATABASE_PASSWORD : ''}/compasso-rest-api`, {
+
+    mongoose.connect(`mongodb://${DATABASE_USER && DATABASE_PASSWORD ? DATABASE_USER + ':' + DATABASE_PASSWORD + '@' : ''}${DATABASE_URL}/compasso-rest-api`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
