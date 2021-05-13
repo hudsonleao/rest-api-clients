@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "env-cmd --rc-file .env -e development node app.js",
+    "lint": "eslint --fix {src,tests,configs}/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,16 @@
   },
   "homepage": "https://github.com/hudsonleao/teste-compasso-rest-api#readme",
   "dependencies": {
+    "consign": "^0.1.6",
     "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.12.8",
     "swagger-autogen": "^2.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0"
   }
 }

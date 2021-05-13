@@ -3,8 +3,9 @@ const consign = require('consign');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
-module.exports = function () {
+module.exports = () => {
     const app = express();
+    app.mongoose = require('./mongoose')();
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(require('method-override')());

@@ -1,9 +1,9 @@
 # teste-compasso-rest-api
 
 # TODO:
-- Implementar o cross-env
-- Implementar lint
-- Implementar ORM mongoose
+- Implementar o env-cmd ✓
+- Implementar lint ✓
+- Implementar o mongoose ✓
 - Migration com migrate-mongoose
 - **CRUD cidade e cliente:**
  Cadastrar cidade e cliente;

@@ -1,17 +1,17 @@
-const swaggerAutogen = require('swagger-autogen')()
+const swaggerAutogen = require('swagger-autogen')();
 
 module.exports = () => {
     const doc = {
         info: {
-            title: "Teste Compasso REST API",
-            description: "Teste API"
+            title: 'Teste Compasso REST API',
+            description: 'Teste API'
         },
-        host: "localhost:3000",
+        host: 'localhost:3000',
         schemes: ['http']
-    }
+    };
 
-    const outputFile = '../swagger-documentation.json'
-    const endpointsFiles = ['../src/routes/*.js']
+    const outputFile = '../swagger-documentation.json';
+    const endpointsFiles = ['../src/routes/*.js'];
 
-    swaggerAutogen(outputFile, endpointsFiles, doc)
-}
+    swaggerAutogen(outputFile, endpointsFiles, doc);
+};
