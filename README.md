@@ -15,7 +15,7 @@
  Cidades: nome e estado; ✓
  Cliente: nome completo, sexo, data de nascimento, idade e cidade onde mora. ✓
 - Migration do usuário admin e de todas as cidades do Brasil. ✓
-- Validações com Joi
+- Validações com Joi ✓
 - Documentação com Swagger
 - Logs com Winston ✓
 - Implementar o audit

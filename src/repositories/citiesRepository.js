@@ -1,7 +1,7 @@
 module.exports = ({ models: { citiesModel } }) => {
     return {
         find: async ({ query = {}, options = {} }) => {
-            return citiesModel.paginate({ ...query, is_deleted: false }, options);
+            return await citiesModel.paginate({ ...query, is_deleted: false }, options);
         },
 
         findAll: async ({ query = {}}) => {

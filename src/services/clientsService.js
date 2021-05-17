@@ -40,6 +40,8 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
             delete query.page;
             const clients = await clientsRepository.find({ query, options });
 
+            if (!clients) NOT_FOUND('User id not found', 'clientsService', 'get');
+
             return clientsMapper.filterPaginate(clients);
         },
 
