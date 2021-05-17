@@ -1,4 +1,4 @@
-# teste-compasso-rest-api
+# test-compasso-rest-api
 
 # TODO:
 - Implementar o env-cmd ✓
