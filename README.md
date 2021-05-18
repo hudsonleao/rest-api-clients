@@ -4,7 +4,7 @@
 
 `npm i`
 
-Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o arquivo .env_example como modelo.
+####Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o arquivo .env_example como modelo.
 
 ### Insira o usuário na base do mongo: 
 
