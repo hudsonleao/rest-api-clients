@@ -8,7 +8,7 @@ Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o ar
 
 ### Insira o usuário na base do mongo: 
 
-#`npm run migration:user`
+`npm run migration:user`
 
 Dados do usuário:
 user: admin
@@ -18,11 +18,11 @@ password: gd2D2@cjwcvneSMs2Sc_ew
 
 #### Obs: esse passo não é necessário, execute somente caso queira popular a base com todas as cidades e seus respectivos estados
 
-#`npm run migration:cities`
+`npm run migration:cities`
 
 ### Para iniciar a aplicação execute:
 
-#`npm run dev`
+`npm run dev`
 
 ### Após o comando interior a aplicação estará disponível em: http://localhost:3000
 
