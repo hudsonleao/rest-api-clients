@@ -30,7 +30,7 @@
 
 `npm run dev`
 
-### Após o comando interior a aplicação estará disponível em: http://localhost:3000
+### Após o comando anterior a aplicação estará disponível em: http://localhost:3000
 
 ### Para acessar a documentação acesse: http://localhost:3000/api/v1/docs
 
