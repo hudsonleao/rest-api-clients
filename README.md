@@ -36,7 +36,7 @@
 
 ##
 
-# TODO:
+# To Do:
 - ### Implementar o env-cmd ✓
 - ### Implementar lint ✓
 - ### Implementar o mongoose ✓
