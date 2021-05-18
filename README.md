@@ -2,13 +2,17 @@
 
 ## Rodar a aplicação: 
 
-#`npm i`
+`npm i`
 
 Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o arquivo .env_example como modelo.
 
 ### Insira o usuário na base do mongo: 
 
 #`npm run migration:user`
+
+Dados do usuário:
+user: admin
+password: gd2D2@cjwcvneSMs2Sc_ew
 
 ### Caso queira inserir todas as cidades do Brasil na base de dados execute:
 
@@ -22,7 +26,7 @@ Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o ar
 
 ### Após o comando interior a aplicação estará disponível em: http://localhost:3000
 
-### Para acessar a documentação acesse a url: http://localhost:3000/api/v1/docs
+### Para acessar a documentação acesse: http://localhost:3000/api/v1/docs
 
 # TODO:
 - Implementar o env-cmd ✓
@@ -45,6 +49,3 @@ Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o ar
 - Audit fix ✓
 
 **NODE: v14.16.0**
-
-user: admin
-password: gd2D2@cjwcvneSMs2Sc_ew
