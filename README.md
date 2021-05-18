@@ -10,9 +10,9 @@ Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o ar
 
 `npm run migration:user`
 
-Dados do usuário:
-user: admin
-password: gd2D2@cjwcvneSMs2Sc_ew
+#### Dados do usuário:
+#### user: admin
+#### password: gd2D2@cjwcvneSMs2Sc_ew
 
 ### Caso queira inserir todas as cidades do Brasil na base de dados execute:
 
