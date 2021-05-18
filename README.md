@@ -1,5 +1,29 @@
 # test-compasso-rest-api
 
+## Rodar a aplicação: 
+
+#`npm i`
+
+Crie o arquivo .env e edite as variáveis de acordo com o seu ambiente. Use o arquivo .env_example como modelo.
+
+### Insira o usuário na base do mongo: 
+
+#`npm run migration:user`
+
+### Caso queira inserir todas as cidades do Brasil na base de dados execute:
+
+#### Obs: esse passo não é necessário, execute somente caso queira popular a base com todas as cidades e seus respectivos estados
+
+#`npm run migration:cities`
+
+### Para iniciar a aplicação execute:
+
+#`npm run dev`
+
+### Após o comando interior a aplicação estará disponível em: http://localhost:3000
+
+### Para acessar a documentação acesse a url: http://localhost:3000/api/v1/docs
+
 # TODO:
 - Implementar o env-cmd ✓
 - Implementar lint ✓
