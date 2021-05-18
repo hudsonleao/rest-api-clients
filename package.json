@@ -7,8 +7,8 @@
     "audit": "npm audit fix --registry=https://registry.npmjs.org/",
     "dev": "env-cmd --rc-file .env -e development node app.js",
     "lint": "eslint --fix {src,tests,configs}/**/*.js",
-    "migration:user": "env-cmd --rc-file .env -e development node migrations/user.js",
-    "migration:cities": "env-cmd --rc-file .env -e development node migrations/cities.js",
+    "seeder:user": "env-cmd --rc-file .env -e development node seeder/user.js",
+    "seeder:cities": "env-cmd --rc-file .env -e development node seeder/cities.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

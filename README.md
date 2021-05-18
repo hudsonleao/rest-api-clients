@@ -10,7 +10,7 @@
 
 ### Insira o usuário na base do mongo: 
 
-`npm run migration:user`
+`npm run seeder:user`
 
 #### Dados do usuário:
 #### user: admin
@@ -22,7 +22,7 @@
 
 #### Obs: esse passo não é necessário, execute somente caso queira popular a base com todas as cidades e seus respectivos estados
 
-`npm run migration:cities`
+`npm run seeder:cities`
 
 ##
 
