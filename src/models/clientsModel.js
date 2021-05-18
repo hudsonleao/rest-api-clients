@@ -18,7 +18,7 @@ module.exports = () => {
         },
         city_id: {
             type: Schema.Types.ObjectId,
-            ref: "cities"
+            ref: 'cities'
         },
         created_by: {
             type: String
@@ -35,4 +35,4 @@ module.exports = () => {
     clientsSchema.plugin(mongoosePaginate);
 
     return model('clients', clientsSchema);
-}
+};

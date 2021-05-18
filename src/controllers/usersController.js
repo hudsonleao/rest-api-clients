@@ -1,4 +1,4 @@
-const { code: { OK, CREATED } } = require("../../utils/httpStatusCode");
+const { code: { OK, CREATED } } = require('../../utils/httpStatusCode');
 
 module.exports = ({ services: { usersService } }) => {
 
@@ -7,9 +7,9 @@ module.exports = ({ services: { usersService } }) => {
             try {
                 const { query } = req;
                 const response = await usersService.get(query);
-                res.status(OK).json({ data: response })
+                res.status(OK).json({ data: response });
             } catch (error) {
-                next(error)
+                next(error);
             }
         },
 
@@ -17,9 +17,9 @@ module.exports = ({ services: { usersService } }) => {
             try {
                 const { params: { user_id } } = req;
                 const response = await usersService.get({ _id: user_id });
-                res.status(OK).json({ data: response })
+                res.status(OK).json({ data: response });
             } catch (error) {
-                next(error)
+                next(error);
             }
         },
 
@@ -27,9 +27,9 @@ module.exports = ({ services: { usersService } }) => {
             try {
                 const { body, headers: { subject } } = req;
                 const response = await usersService.create({ ...body, subject });
-                res.status(CREATED).json({ data: response })
+                res.status(CREATED).json({ data: response });
             } catch (error) {
-                next(error)
+                next(error);
             }
         },
 
@@ -37,9 +37,9 @@ module.exports = ({ services: { usersService } }) => {
             try {
                 const { body, params: { user_id }, headers: { subject } } = req;
                 const response = await usersService.update({ ...body, updated_by: subject }, { _id: user_id });
-                res.status(OK).json({ data: response })
+                res.status(OK).json({ data: response });
             } catch (error) {
-                next(error)
+                next(error);
             }
         },
 
@@ -47,10 +47,10 @@ module.exports = ({ services: { usersService } }) => {
             try {
                 const { params: { user_id }, headers: { subject } } = req;
                 const response = await usersService.delete({ updated_by: subject }, { _id: user_id });
-                res.status(OK).json({ data: response })
+                res.status(OK).json({ data: response });
             } catch (error) {
-                next(error)
+                next(error);
             }
         }
-    }
-}
+    };
+};

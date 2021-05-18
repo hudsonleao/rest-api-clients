@@ -1,7 +1,7 @@
 module.exports = {
 
     filter: async ({ _id, name, user, active, created_by, updated_by, created_at, updated_at  }) => {
-        return { _id, name, user, active, created_by, updated_by, created_at, updated_at  }
+        return { _id, name, user, active, created_by, updated_by, created_at, updated_at  };
     },
 
     filterPaginate: async ({
@@ -19,7 +19,7 @@ module.exports = {
 
         const data = {
             docs: docs.map(({ _id, name, user, active, created_by, updated_by, created_at, updated_at  }) => {
-                return { _id, name, user, active, created_by, updated_by, created_at, updated_at  }
+                return { _id, name, user, active, created_by, updated_by, created_at, updated_at  };
             }),
             totalDocs,
             limit,
@@ -30,8 +30,8 @@ module.exports = {
             hasNextPage,
             prevPage,
             nextPage
-        }
+        };
 
         return data;
     }
-}
+};

@@ -36,4 +36,4 @@ module.exports = () => {
     usersSchema.plugin(mongoosePaginate);
 
     return model('users', usersSchema);
-}
+};

@@ -1,17 +1,31 @@
-const swaggerAutogen = require('swagger-autogen')();
-
 module.exports = () => {
+    const swaggerAutogen = require('swagger-autogen')();
+
     const doc = {
+        swagger: "2.0",
         info: {
-            title: 'Teste Compasso REST API',
-            description: 'Teste API'
+            title: 'Test Compasso REST API',
+            description: 'API',
         },
-        host: 'localhost:3000',
-        schemes: ['http']
+        host: 'localhost:3000/api/v1',
+        schemes: ['http'],
+        securityDefinitions: {
+            bearerAuth: {
+                type: 'apiKey',
+                scheme: 'bearer',
+                bearerFormat: 'JWT',
+                name: 'authorization'
+            }
+        },
+        security: [
+            {
+                bearerAuth: []
+            }
+        ]
     };
 
-    const outputFile = '../swagger-documentation.json';
-    const endpointsFiles = ['../src/routes/*.js'];
+    const outputFile = './swagger-output.json';
+    const endpointsFiles = ['./src/routes/authRoute.js', './src/routes/citiesRoute.js', './src/routes/clientsRoute.js', './src/routes/usersRoute.js'];
 
     swaggerAutogen(outputFile, endpointsFiles, doc);
-};
+}

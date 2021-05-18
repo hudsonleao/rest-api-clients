@@ -3,6 +3,8 @@ const consign = require('consign');
 const cors = require('cors');
 const mongoose = require('./mongoose');
 const logger = require('./logger');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('../swagger-output.json');
 
 module.exports = () => {
     const app = express();
@@ -14,6 +16,7 @@ module.exports = () => {
     app.use(cors());
     app.options('*', cors());
     app.use('/api/v1', app._router);
+    app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
     consign({ cwd: 'src', verbose: false })
         .include('models')

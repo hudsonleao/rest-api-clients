@@ -10,11 +10,11 @@ module.exports = ({ models: { usersModel } }) => {
         },
 
         create: async (data) => {
-            return usersModel.create(data)
+            return usersModel.create(data);
         },
 
         update: async (query, user_id, is_deleted = false) => {
             return usersModel.findOneAndUpdate({ ...user_id, is_deleted: false }, { ...query, is_deleted }, { new: true });
         }
-    }
-}
+    };
+};

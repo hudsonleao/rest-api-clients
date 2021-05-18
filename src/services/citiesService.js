@@ -1,4 +1,4 @@
-const { cityExist } = require('../../utils/cityExist');
+const cityExist = require('../../utils/cityExist');
 const { UNPROCESSABLE_ENTITY, NOT_FOUND } = require('../../utils/errorsHandling');
 module.exports = ({ repositories: { citiesRepository }, mappers: { citiesMapper } }) => {
 
@@ -8,7 +8,7 @@ module.exports = ({ repositories: { citiesRepository }, mappers: { citiesMapper 
 
             const cityExistent = await cityExist(citiesRepository, name, state);
 
-            if (cityExistent) UNPROCESSABLE_ENTITY(`City already exists, found: ${cityExistent.name}`, 'citiesService', 'create');
+            if (cityExistent) return UNPROCESSABLE_ENTITY(`City already exists, found: ${cityExistent.name}`, 'citiesService', 'create');
 
             const userCreate = await citiesRepository.create({
                 name,
@@ -17,25 +17,27 @@ module.exports = ({ repositories: { citiesRepository }, mappers: { citiesMapper 
                 updated_by: subject,
             });
 
-            return citiesMapper.filter(userCreate)
+            return citiesMapper.filter(userCreate);
         },
 
         get: async (query) => {
             const options = {
                 limit: query.limit ? parseInt(query.limit) : 100,
                 page: query.page ? parseInt(query.page) : 1
-            }
+            };
             delete query.limit;
             delete query.page;
             const cities = await citiesRepository.find({ query, options });
 
-            return citiesMapper.filterPaginate(cities);
+            if (cities.docs.length > 0) return citiesMapper.filterPaginate(cities);
+            
+            return cities;
         },
 
         getById: async (city_id) => {
             const cities = await citiesRepository.findById(city_id);
 
-            if (!cities) NOT_FOUND('City id not found', 'citiesService', 'getById');
+            if (!cities) return NOT_FOUND('City id not found', 'citiesService', 'getById');
 
             return cities;
         },
@@ -43,7 +45,7 @@ module.exports = ({ repositories: { citiesRepository }, mappers: { citiesMapper 
         update: async (query, city_id) => {
             const cities = await citiesRepository.update(query, city_id);
 
-            if (!cities) NOT_FOUND('City id not found', 'citiesService', 'update');
+            if (!cities) return NOT_FOUND('City id not found', 'citiesService', 'update');
 
             return citiesMapper.filter(cities);
         },
@@ -51,9 +53,9 @@ module.exports = ({ repositories: { citiesRepository }, mappers: { citiesMapper 
         delete: async (query, city_id) => {
             const cities = await citiesRepository.update(query, city_id, true);
 
-            if (!cities) NOT_FOUND('City id not found', 'citiesService', 'delete');
+            if (!cities) return NOT_FOUND('City id not found', 'citiesService', 'delete');
 
-            return citiesMapper.filter(cities);;
+            return citiesMapper.filter(cities);
         },
-    }
-}
+    };
+};

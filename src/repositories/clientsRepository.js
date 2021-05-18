@@ -19,5 +19,5 @@ module.exports = ({ models: { clientsModel, citiesModel } }) => {
         update: async (query, client_id, is_deleted = false) => {
             return clientsModel.findOneAndUpdate({ ...client_id, is_deleted: false }, { ...query, is_deleted }, { new: true });
         }
-    }
-}
+    };
+};

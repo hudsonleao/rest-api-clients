@@ -13,11 +13,11 @@ module.exports = ({ models: { citiesModel } }) => {
         },
 
         create: async (data) => {
-            return citiesModel.create(data)
+            return citiesModel.create(data);
         },
 
         update: async (query, city_id, is_deleted = false) => {
             return citiesModel.findOneAndUpdate({ ...city_id, is_deleted: false }, { ...query, is_deleted }, { new: true });
         }
-    }
-}
+    };
+};

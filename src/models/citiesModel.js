@@ -27,4 +27,4 @@ module.exports = () => {
     citiesSchema.plugin(mongoosePaginate);
 
     return model('cities', citiesSchema);
-}
+};

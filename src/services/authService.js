@@ -1,5 +1,5 @@
 const crypto = require('../../utils/crypto');
-const { UNAUTHORIZED } = require('../../utils/errorsHandling')
+const { UNAUTHORIZED } = require('../../utils/errorsHandling');
 const jwt = require('jsonwebtoken');
 module.exports = ({ repositories: { usersRepository } }) => {
 
@@ -17,5 +17,5 @@ module.exports = ({ repositories: { usersRepository } }) => {
 
             return { token };
         },
-    }
-}
+    };
+};

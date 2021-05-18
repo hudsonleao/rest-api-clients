@@ -1,4 +1,4 @@
-const { cityExist } = require('../../utils/cityExist');
+const cityExist = require('../../utils/cityExist');
 const { UNPROCESSABLE_ENTITY, NOT_FOUND } = require('../../utils/errorsHandling');
 
 module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappers: { clientsMapper } }) => {
@@ -7,11 +7,11 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
 
         create: async ({ name, gender, dateOfBirth, city, state, subject }) => {
             const { docs: [userExist] } = await clientsRepository.find({ query: { name } });
-            if (userExist) UNPROCESSABLE_ENTITY('Client already exists', 'clientsService', 'create');
+            if (userExist) return UNPROCESSABLE_ENTITY('Client already exists', 'clientsService', 'create');
 
             const cityExistent = await cityExist(citiesRepository, city, state);
 
-            if (!cityExistent) UNPROCESSABLE_ENTITY(`City not found, register the new city and try again.`, 'citiesService', 'create');
+            if (!cityExistent) return UNPROCESSABLE_ENTITY('City not found, register the new city and try again.', 'citiesService', 'create');
 
             const { _id: city_id } = cityExistent;
 
@@ -27,7 +27,7 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
             let client = clientCreate._doc;
             client.city_id = { _id: city_id, name: city, state };
 
-            return clientsMapper.filter(client)
+            return clientsMapper.filter(client);
         },
 
         get: async (query) => {
@@ -35,20 +35,20 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
                 limit: query.limit ? parseInt(query.limit) : 100,
                 page: query.page ? parseInt(query.page) : 1,
                 populate: 'city_id'
-            }
+            };
             delete query.limit;
             delete query.page;
             const clients = await clientsRepository.find({ query, options });
 
-            if (!clients) NOT_FOUND('User id not found', 'clientsService', 'get');
-
-            return clientsMapper.filterPaginate(clients);
+            if (clients.docs.length > 0) return clientsMapper.filterPaginate(clients);
+            
+            return clients;
         },
 
         getById: async (user_id) => {
             const clients = await clientsRepository.findById(user_id);
 
-            if (!clients) NOT_FOUND('User id not found', 'clientsService', 'getById');
+            if (!clients) return NOT_FOUND('User id not found', 'clientsService', 'getById');
 
             return clients;
         },
@@ -57,7 +57,7 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
 
             const clients = await clientsRepository.update(query, user_id);
 
-            if (!clients) NOT_FOUND('User id not found', 'clientsService', 'update');
+            if (!clients) return NOT_FOUND('User id not found', 'clientsService', 'update');
 
             return clientsMapper.filter(clients);
         },
@@ -65,9 +65,9 @@ module.exports = ({ repositories: { clientsRepository, citiesRepository }, mappe
         delete: async (user_id) => {
             const clients = await clientsRepository.update({}, user_id, true);
 
-            if (!clients) NOT_FOUND('User id not found', 'clientsService', 'delete');
+            if (!clients) return NOT_FOUND('User id not found', 'clientsService', 'delete');
 
-            return clientsMapper.filter(clients);;
+            return clientsMapper.filter(clients);
         },
-    }
-}
+    };
+};

@@ -4,7 +4,7 @@ const headers = {
     headers: Joi.object().keys({
         authorization: Joi.string().required()
     })
-}
+};
 
 const schemas = {
     createUsers: Joi.object().keys({

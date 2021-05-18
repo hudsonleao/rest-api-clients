@@ -6,7 +6,7 @@ const headers = {
     headers: Joi.object().keys({
         authorization: Joi.string().required()
     })
-}
+};
 
 const schemas = {
     createClients: Joi.object().keys({

@@ -1,0 +1,457 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Test Compasso REST API",
+    "description": "API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000/api/v1",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "scheme": "bearer",
+      "bearerFormat": "JWT",
+      "name": "authorization"
+    }
+  },
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "users_authentication",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string",
+                  "example": "admin",
+                  "required": true
+                },
+                "password": {
+                  "type": "string",
+                  "example": "gd2D2@cjwcvneSMs2Sc_ew",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/cities": {
+      "post": {
+        "tags": [
+          "cities"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "cities",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "São Gonçalo do Pará",
+                  "required": true
+                },
+                "state": {
+                  "type": "string",
+                  "example": "Minas Gerais",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "cities"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string",
+            "example": "10"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string",
+            "example": "1"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "example": "São Gonçalo Do Pará"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "type": "string",
+            "example": "Minas Gerais"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/cities/{city_id}": {
+      "get": {
+        "tags": [
+          "cities"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "cities"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          },
+          {
+            "name": "cities",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "São Gonçalo do Pará"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "Minas Gerais"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "cities"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/clients": {
+      "post": {
+        "tags": [
+          "clients"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "clients",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Hudson Leão",
+                  "required": true
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "M",
+                  "required": true
+                },
+                "dateOfBirth": {
+                  "type": "string",
+                  "example": "1995-08-28",
+                  "required": true
+                },
+                "city": {
+                  "type": "string",
+                  "example": "São Gonçalo do Pará",
+                  "required": true
+                },
+                "state": {
+                  "type": "string",
+                  "example": "Minas Gerais",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string",
+            "example": "10"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string",
+            "example": "1"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "example": "Hudson Leão"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/clients/{client_id}": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "clients"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          },
+          {
+            "name": "clients",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Hudson Leão"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "dateOfBirth": {
+                  "type": "string",
+                  "example": "1995-08-28"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "São Gonçalo do Pará"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "Minas Gerais"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "clients"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Hudson Leão",
+                  "required": true
+                },
+                "user": {
+                  "type": "string",
+                  "example": "hudsonleao",
+                  "required": true
+                },
+                "password": {
+                  "type": "string",
+                  "example": "gd2D2@cjwcvneSMs2Sc_ew",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Hudson Leão"
+                },
+                "user": {
+                  "type": "string",
+                  "example": "hudsonleao"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "gd2D2@cjwcvneSMs2Sc_ew"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "example": "60a1cf3616572816185d16ce"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {},
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
