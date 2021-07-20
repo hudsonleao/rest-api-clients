@@ -1,4 +1,4 @@
-# test-compasso-rest-api
+# REST API clients
 
 ## Rodar a aplicação: 
 
